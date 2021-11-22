@@ -4,6 +4,7 @@ using System.Diagnostics;
 
 namespace BooklyWeb.Controllers
 {
+    [Area("Customer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
