@@ -3,6 +3,7 @@ using Bookly.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Collections.Generic;
+using Bookly.Models.ViewModels;
 
 namespace BooklyWeb.Controllers
 {
@@ -21,7 +22,18 @@ namespace BooklyWeb.Controllers
         public IActionResult Index()
         {
             IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category,CoverType");
+            
             return View(productList);
+        }
+
+        public IActionResult Details(int id)
+        {
+            ShoppingCart cartObj = new()
+            {
+                Count = 1,
+                Product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id, includeProperties: "Category,CoverType")
+            }; 
+            return View(cartObj);
         }
 
         public IActionResult Privacy()
