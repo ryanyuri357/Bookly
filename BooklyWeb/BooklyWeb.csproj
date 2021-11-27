@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bookly.DataAccess\Bookly.DataAccess.csproj" />
+    <ProjectReference Include="..\Bookly.Utility\Bookly.Utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>
