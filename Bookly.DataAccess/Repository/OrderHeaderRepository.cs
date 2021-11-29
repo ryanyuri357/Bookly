@@ -27,8 +27,20 @@ namespace Bookly.DataAccess.Repository
             var orderFromDb = _db.OrderHeaders.FirstOrDefault(u => u.Id == id);
             if(orderFromDb != null)
             {
-                orderFromDb.OrderStatus = paymentStatus;
+                orderFromDb.OrderStatus = orderStatus;
+                if(paymentStatus != null)
+                {
+                    orderFromDb.PaymentStatus = paymentStatus;
+                }
             }
+        }
+
+        public void UpdateStripePaymentID(int id, string sessionId, string paymentIntentId)
+        {
+            var orderFromDb = _db.OrderHeaders.FirstOrDefault(u => u.Id == id);
+            
+            orderFromDb.SessionId = sessionId;
+            orderFromDb.PaymentIntentId = paymentIntentId;
         }
     }
 }

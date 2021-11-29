@@ -1,4 +1,6 @@
 ﻿@model Bookly.Models.ViewModels.ShoppingCartVM
+@using Microsoft.Extensions.Options
+@inject IOptions<Bookly.Utility.StripeSettings> Stripe
 
 <form method="post">
 	<br />
