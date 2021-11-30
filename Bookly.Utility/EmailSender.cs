@@ -1,6 +1,9 @@
 ﻿using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.Extensions.Configuration;
 using MimeKit;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +14,14 @@ namespace Bookly.Utility
 {
     public class EmailSender : IEmailSender
     {
+        // Send email using SendGrid - only works for domain email addresses, not Gmail, Yahoo, etc.
+        // public string SendGridSecret { get; set; }
+
+        //public EmailSender(IConfiguration _config)
+        //{
+        //    SendGridSecret = _config.GetValue<string>("SendGrid:SecretKey");
+
+        //}
         public Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
             var emailToSend = new MimeMessage();
@@ -29,6 +40,15 @@ namespace Bookly.Utility
             }
 
             return Task.CompletedTask;
+
+
+            // Send email using SendGrid - only works for domain email addresses, not Gmail, Yahoo, etc.
+
+            //var client = new SendGridClient(SendGridSecret);
+            //var from = new EmailAddress("hello@mydomainname.com", "BooklyBooks.com");
+            //var to = new EmailAddress(email);
+            //var msg = MailHelper.CreateSingleEmail(from, to, subject, "", htmlMessage);
+            //return client.SendEmailAsync(msg);
         }
     }
 }
