@@ -14,8 +14,7 @@ namespace BooklyWeb.Areas.Admin.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         [BindProperty]
-        OrderVM OrderVM { get; set; }
-
+        public OrderVM OrderVM { get; set; }
         public OrderController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -36,6 +35,32 @@ namespace BooklyWeb.Areas.Admin.Controllers
             return View(OrderVM);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateOrderDetail()
+        {
+            var orderHEaderFromDb = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == OrderVM.OrderHeader.Id, tracked: false);
+            orderHEaderFromDb.Name = OrderVM.OrderHeader.Name;
+            orderHEaderFromDb.PhoneNumber = OrderVM.OrderHeader.PhoneNumber;
+            orderHEaderFromDb.StreetAddress = OrderVM.OrderHeader.StreetAddress;
+            orderHEaderFromDb.City = OrderVM.OrderHeader.City;
+            orderHEaderFromDb.State = OrderVM.OrderHeader.State;
+            orderHEaderFromDb.PostalCode = OrderVM.OrderHeader.PostalCode;
+            if (OrderVM.OrderHeader.Carrier != null)
+            {
+                orderHEaderFromDb.Carrier = OrderVM.OrderHeader.Carrier;
+            }
+            if (OrderVM.OrderHeader.TrackingNumber != null)
+            {
+                orderHEaderFromDb.TrackingNumber = OrderVM.OrderHeader.TrackingNumber;
+            }
+            _unitOfWork.OrderHeader.Update(orderHEaderFromDb);
+            _unitOfWork.Save();
+            TempData["Success"] = "Order Details Updated Successfully.";
+            return RedirectToAction("Details", "Order", new { orderId = orderHEaderFromDb.Id });
+        }
+
+
         #region API CALLS
         [HttpGet]
         public IActionResult GetAll(string status)
@@ -53,7 +78,7 @@ namespace BooklyWeb.Areas.Admin.Controllers
                 orderHeaders = _unitOfWork.OrderHeader.GetAll(u => u.ApplicationUserId == claim.Value, includeProperties: "ApplicationUser");
             }
 
-            switch(status)
+            switch (status)
             {
                 case "pending":
                     orderHeaders = orderHeaders.Where(u => u.PaymentStatus == SD.PaymentStatusDelayedPayment);
