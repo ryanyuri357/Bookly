@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bookly.Models\Bookly.Models.csproj" />
+    <ProjectReference Include="..\Bookly.Utility\Bookly.Utility.csproj" />
   </ItemGroup>
 
 </Project>
