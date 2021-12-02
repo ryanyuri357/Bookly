@@ -1,11 +1,11 @@
 # Bookly.com - eCommerce Web App
 
-### ASP.NET Core 6.0 MVC e-Commerce app: BOOKLY
+
+## ASP.NET Core 6.0 MVC e-Commerce app: BOOKLY
 
 ### N-tier Architecture. Implementing Entity Framework Core, ASP.NET Identity Core, Facebook OAuth, SMTP
 
 ### Administrator and employee roles for managing users, companies, products and processing orders. Individual and company user roles for adding items to cart, managing orders and making payments with Stripe.
-
 
 
 ## Check out the live demp app on Azure: https://booklybooks.azurewebsites.net/
@@ -27,6 +27,7 @@ orders@foxbooks.com / Password123$
 
 ## Test mode credit card payments with Stripe API
 
-### Use any name, adress
-### Use credit card number: 4242 4242 4242 4242
-### Use and future date for expiration any 3 digit number for CVV
+### Credit Card Number:
+4242 4242 4242 4242
+### Other info:
+Use any name, address, future month/year for expiration, 3 digit number for CVV
