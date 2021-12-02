@@ -1,14 +1,15 @@
 # Bookly.com - eCommerce Web App
 
 
-## ASP.NET Core 6.0 MVC e-Commerce app: BOOKLY
+## C# ASP.NET Core 6.0, MS SQL, MVC design pattern
 
 ### N-tier Architecture. Implementing Entity Framework Core, ASP.NET Identity Core, Facebook OAuth, SMTP
 
 ### Administrator and employee roles for managing users, companies, products and processing orders. Individual and company user roles for adding items to cart, managing orders and making payments with Stripe.
 
 
-## Check out the live demp app on Azure: https://booklybooks.azurewebsites.net/
+## Live demo app on Azure 
+### https://booklybooks.azurewebsites.net/
 
 ### Create your own individual user with email & password or FaceBook (email address will recieve email confirmation and fake order confirmation emails*). Or use these provided test accounts:
 
