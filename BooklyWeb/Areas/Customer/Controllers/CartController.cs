@@ -131,7 +131,7 @@ namespace BooklyWeb.Areas.Customer.Controllers
             if (applicationUser.CompanyId.GetValueOrDefault() == 0)
             {
                 // STRIPE SETTINGS //
-                var domain = "https://localhost:44396/";
+                var domain = "https://booklybooks.azurewebsites.net/";
                 var options = new SessionCreateOptions
                 {
                     PaymentMethodTypes = new List<string>
