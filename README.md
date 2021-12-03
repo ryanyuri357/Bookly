@@ -3,7 +3,7 @@
 
 ## C# ASP.NET Core 6.0, MS SQL, MVC design pattern
 
-### N-tier Architecture. Implementing Entity Framework Core, ASP.NET Identity Core, Facebook OAuth, SMTP
+### N-tier Architecture. Implementing Entity Framework Core, ASP.NET Identity Core, Facebook OAuth, SMTP and other features.
 
 ### Administrator and employee roles for managing users, companies, products and processing orders. Individual and company user roles for adding items to cart, managing orders and making payments with Stripe.
 
