@@ -46,7 +46,7 @@ namespace BooklyWeb.Areas.Admin.Controllers
             OrderVM.OrderDetail = _unitOfWork.OrderDetail.GetAll(u => u.OrderId == OrderVM.OrderHeader.Id, includeProperties: "Product");
 
             // STRIPE SETTINGS //
-            var domain = "https://localhost:44396/";
+            var domain = "https://booklybooks.azurewebsites.net/";
             var options = new SessionCreateOptions
             {
                 PaymentMethodTypes = new List<string>
